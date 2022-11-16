@@ -13,14 +13,14 @@ LABEL maintainer="UC San Diego ITS/ETS <ets-consult@ucsd.edu>"
 # 2) change to root to install packages
 USER root
 
-RUN apt-get -y install htop
+RUN apt-get update && apt-get -y install htop aria2 nmap traceroute
 
 # 3) install packages using notebook user
 USER jovyan
 
-# RUN conda install -y scikit-learn
+# RUN conda install --yes scikit-learn geopandas
 
-RUN pip install --no-cache-dir networkx scipy
+RUN pip install --no-cache-dir bed-reader plink statsmodels logging pandas numpy
 
 # Override command to disable running jupyter notebook at launch
-# CMD ["/bin/bash"]
+CMD ["/bin/bash"]"
