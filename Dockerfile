@@ -22,5 +22,7 @@ USER jovyan
 
 RUN pip install --no-cache-dir bed-reader plink statsmodels logging pandas numpy
 
+RUN R -e "install.packages('plink2R-master/plink2R/',repos=NULL)"
+
 # Override command to disable running jupyter notebook at launch
 CMD ["/bin/bash"]"
